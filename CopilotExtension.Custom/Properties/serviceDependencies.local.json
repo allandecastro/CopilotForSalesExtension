@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "identityapp1": {
+      "connectionInfo": "App registration: Portals-Portal, Tenant: allandecastro.com (allandecastro.com - Microsoft Entra ID)",
+      "type": "identityapp.default"
+    }
+  }
+}
