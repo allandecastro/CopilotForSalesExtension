@@ -8,7 +8,6 @@ namespace CopilotExtension.Custom.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class CrmRecordSummaryController : ControllerBase
     {
         /// <summary>
