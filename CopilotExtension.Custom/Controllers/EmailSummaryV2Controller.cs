@@ -6,36 +6,34 @@ using System.Net;
 namespace CopilotExtension.Custom.Controllers
 {
     [ApiController]
-    [Route("api/enhanceskills/email-insights")]
-    public class EmailSummaryController : ControllerBase
+    [Route("api/enhanceskills/email-insights-v2")]
+    public class EmailSummaryV2Controller : ControllerBase
     {
         /// <summary>
         /// This action gets additional sales insights that will be shown in C4S email summary experience inside outlook summary. The action enhances the existing skills of copilot for sales
         /// </summary>
         /// <param name="request">Email insights request payload.</param>
         /// <returns>Summarized CRM insights related to the email.</returns>
-        [HttpGet]
+        [HttpPost]
         [ProducesResponseType(typeof(EmailSummaryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult GetEnrichEmailSummary([FromQuery] EmailInsightRequest request)
+        public IActionResult PostEnrichEmailSummary([FromBody] EmailInsightsRequest request)
         {
             // Model validation is automatically handled by [ApiController]
             try
             {
-                var response = new EmailInsightListResponse
+                var response = new EmailSummaryResponse
                 {
-                    value = new List<EmailInsight>
+                    value = new List<InsightMarkdown>
                     {
-                        new EmailInsight
+                        new InsightMarkdown
                         {
-                            description = "ALLAN TEST 1",
-                            title="Title Test 1"
+                            Insight = "Your colleagues Satya Nadella, Allan De Castro and Nicolas Parts have worked with them before."
                         },
-                        new EmailInsight
+                        new InsightMarkdown
                         {
-                            description = "ALLAN TEST 2",
-                            title="Title Test 2"
+                            Insight = "The email was opened three times in the last month."
                         }
                     },
                     hasMoreResults = false
