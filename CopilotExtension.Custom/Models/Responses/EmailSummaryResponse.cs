@@ -16,7 +16,7 @@ namespace CopilotExtension.Custom.Models.Responses
         public List<Insight> value { get; set; }
 
         /// <summary>
-        /// Flag indicating whether there are additional results available for pagination.
+        /// A value that indicates whether more results are available.
         /// </summary>
         public bool hasMoreResults { get; set; }
     }
@@ -27,7 +27,7 @@ namespace CopilotExtension.Custom.Models.Responses
     public class Insight
     {
         /// <summary>
-        ///The insight that is delivered to user.
+        /// This output indicates the text you would like to be included in the email summary.
         /// </summary>
         [Required]
         public string insight { get; set; }

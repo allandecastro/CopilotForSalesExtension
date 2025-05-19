@@ -1,19 +1,17 @@
-﻿using CopilotExtension.Custom.Models.Common;
-using CopilotExtension.Custom.Models.Requests;
+﻿using CopilotExtension.Custom.Models.Requests;
 using CopilotExtension.Custom.Models.Responses;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace CopilotExtension.Custom.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/enhanceskills/[controller]")]
     public class EmailSummaryController : ControllerBase
     {
         [HttpPost]
         [ProducesResponseType(typeof(EmailSummaryResponse), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status412PreconditionFailed)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult PostEnrichEmailSummary(
             [FromBody] EmailSummaryRequest request)
@@ -21,9 +19,9 @@ namespace CopilotExtension.Custom.Controllers
             // Validation checks for required parameters
             if (request == null || string.IsNullOrEmpty(request.resourceData?.plaintextBody))
             {
-                return BadRequest(new
+                return StatusCode(StatusCodes.Status412PreconditionFailed,new
                 {
-                    errorCode = "400",
+                    errorCode = "405",
                     errorMessage = "Bad Request - Missing required body parameters."
                 });
             }
@@ -33,17 +31,17 @@ namespace CopilotExtension.Custom.Controllers
                 // Create the response body
                 var responseBody = new EmailSummaryResponse
                 {
-                    value = new List<Insight>
-                    {
+                    value =
+                    [
                         new Insight
                         {
-                            insight = "Your colleagues Mona Kane, Ray Tanaka and Daniela Smith have worked with them before."
+                            insight = "Your colleagues Satya Nadella, Allan De Castro and Nicolas Parts have worked with them before."
                         },
                         new Insight
                         {
                             insight = "The email was opened three times in the last month."
                         }
-                    },
+                    ],
                     hasMoreResults = false
                 };
 
