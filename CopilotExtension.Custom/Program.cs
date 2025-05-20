@@ -1,14 +1,24 @@
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json;
+using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 
 namespace CopilotExtension.Custom
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Add Application Insights telemetry
+            builder.Services.AddApplicationInsightsTelemetry(options =>
+            {
+                options.ConnectionString = builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
+                options.EnableAdaptiveSampling = false; // Optional
+            });
+
+
 
             // Configure services BEFORE building the app
             builder.Services.AddControllers().AddJsonOptions(options =>
