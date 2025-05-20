@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace CopilotExtension.Custom.Controllers
 {
     [ApiController]
-    [Route("api/enhanceskills/activities")]
-    public class CRMRecordSummaryController : ControllerBase
+    [Route("api/enhanceskills/related-records")]
+    public class CRMRecordDetailsController : ControllerBase
     {
         /// <summary>
-        /// This action gets additional sales insights related to a CRM record that will be shown in the C4S record summary card. The action enhances the existing skills of copilot for sales.
+        /// This action gets records related to a CRM record. The action enhances the existing skills of Copilot for Sales.
         /// </summary>
         /// <param name="request">Email insights request payload.</param>
         /// <returns>Summarized CRM insights related to the email.</returns>
@@ -17,7 +17,7 @@ namespace CopilotExtension.Custom.Controllers
         [ProducesResponseType(typeof(ActivityListResponseEnvelope), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult GetRelatedActivities([FromQuery] ActivitiesRequest request)
+        public IActionResult GetRelatedRecords([FromQuery] ActivitiesRequest request)
         {
             // Model validation is automatically handled by [ApiController]
             try
