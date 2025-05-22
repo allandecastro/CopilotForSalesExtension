@@ -58,8 +58,7 @@ namespace CopilotExtension.Custom.Models.Requests
 
         /// <summary>
         /// This input indicates the URL of the CRM environment in which the CRM record exists, for which insights are requested.
-        /// </summary>
-        [Url(ErrorMessage = "Invalid CRM Org URL format.")]
+        /// </summary
         [JsonPropertyName("crmOrgUrl")]
         public string crmOrgUrl { get; set; }
     }

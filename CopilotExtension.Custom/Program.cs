@@ -1,7 +1,6 @@
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json;
-using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 
 namespace CopilotExtension.Custom
 {
@@ -14,8 +13,8 @@ namespace CopilotExtension.Custom
             // Add Application Insights telemetry
             builder.Services.AddApplicationInsightsTelemetry(options =>
             {
-                options.ConnectionString = builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
-                options.EnableAdaptiveSampling = false; // Optional
+                options.ConnectionString = builder.Configuration["ApplicationInsights:ConnectionString"];
+                options.EnableAdaptiveSampling = false;
             });
 
 
