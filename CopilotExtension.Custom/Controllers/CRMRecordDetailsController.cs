@@ -40,29 +40,29 @@ namespace CopilotExtension.Custom.Controllers
                         [
                             new ActivityItem
                             {
-                                title = "Speaking at Dynamics Mind 🥳",
-                                description = "Allan is speaking live at DynamicsMinds 🥳 , if you see this in the room, you must applaud or he'll cast a spell on you!",
+                                title = "Speaking at EPPC 2025 🥳",
+                                description = "Allan is speaking live at EPPC 2025 🥳 , if you see this in the room, you must applaud or he'll cast a spell on you!",
                                 dateTime = DateTime.UtcNow.ToString(),
                                 url = "https://www.linkedin.com/in/allandecastro/",
                                 additionalProperties = new Dictionary<string, string>
                                 {
                                     { "Session Name", "Extending Copilot For Sales with Copilot Studio" },
                                     { "Speaker by", "Allan De Castro" },
-                                    { "When", "5/26/25 at 12:15, Mediteranea Room" }
+                                    { "When", "6/18/25 at 10:15, W4" }
                                 }
                             },
                             new ActivityItem
                             {
-                                title = "Next Event",
-                                description = "This guys will speak AGAIN and improve his session at EPPC! " +
-                                               "You can get 10% off your ticket with my code ALLAN10!",
+                                title = "Contest",
+                                description = "This guy is giving away logitech cameras in his session! " +
+                                             "If you follow the instructions during his session and post on LinkedIn you could win one!",
                                 dateTime = DateTime.UtcNow.ToString(),
                                 url = "https://www.linkedin.com/posts/allandecastro_eppc25-powerplatform-copilot-activity-7331212289989038080-UnMQ/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABszDIIBZfZAoYLbdv5DwiTevbXMisWZ0co",
                                 additionalProperties = new Dictionary<string, string>
                                 {
-                                    { "Session Name", "Extending Copilot For Sales with Copilot Studio" },
-                                    { "Speaker by", "Allan De Castro" },
-                                    { "When", "June 11–13, 2025" }
+                                    { "Contest Name", "🎁 Win a Logitech Brio Webcam! — Share & Win 🎉 " },
+                                    { "Offered by", "Allan De Castro" },
+                                    { "When", "June 16–19, 2025" }
                                 }
                             }
                         ],
